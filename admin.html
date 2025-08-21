@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin | Titan Company</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<header class="site-header">
+  <div class="logo">TITAN ADMIN</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="index.html#services">Services</a>
+    <a href="about.html">About</a>
+    <a href="login.html" id="nav-auth">Login</a>
+    <button id="nav-logout" class="btn ghost small" style="display:none;">Logout</button>
+  </nav>
+</header>
+
+<section class="page-head">
+  <h1>Admin Dashboard</h1>
+  <p class="sub">Live users, points, and recent bookings</p>
+</section>
+
+<section class="admin-panels">
+  <div class="panel">
+    <div class="panel-head">
+      <h3>Users</h3>
+      <div class="panel-actions">
+        <button class="btn tiny" id="refresh-users">Refresh</button>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table class="table" id="users-table">
+        <thead>
+          <tr><th>Name</th><th>Email</th><th>Points</th><th>UID</th><th>Actions</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-head">
+      <h3>Bookings</h3>
+      <div class="panel-actions">
+        <button class="btn tiny" id="refresh-bookings">Refresh</button>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table class="table" id="bookings-table">
+        <thead>
+          <tr><th>Service</th><th>Price</th><th>User</th><th>Email</th><th>When</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <p>© 2025 Titan Company • Admin</p>
+</footer>
+
+<script type="module" src="main.js"></script>
+</body>
+</html>
