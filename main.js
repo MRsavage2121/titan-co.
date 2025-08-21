@@ -286,3 +286,76 @@ document.addEventListener("DOMContentLoaded", ()=>{
   initContactForm();
 });
 
+// Firebase imports
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged }
+  from "https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js";
+
+// Firebase config
+const firebaseConfig = {
+  apiKey: "AIzaSyDZ0VGdu2CoK5YY7d3__drDy8OW_bAkfCM",
+  authDomain: "titan-company.firebaseapp.com",
+  projectId: "titan-company",
+  storageBucket: "titan-company.firebasestorage.app",
+  messagingSenderId: "993876361774",
+  appId: "1:993876361774:web:b39b768c2a9054c9d2d5bf",
+  measurementId: "G-QY2XM9Y08Y"
+};
+
+// Init Firebase
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+// Register
+const registerForm = document.getElementById("registerForm");
+if (registerForm) {
+  registerForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const email = document.getElementById("registerEmail").value;
+    const password = document.getElementById("registerPassword").value;
+
+    createUserWithEmailAndPassword(auth, email, password)
+      .then(() => {
+        alert("Account created successfully!");
+        window.location.href = "dashboard.html";
+      })
+      .catch(err => alert(err.message));
+  });
+}
+
+// Login
+const loginForm = document.getElementById("loginForm");
+if (loginForm) {
+  loginForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const email = document.getElementById("loginEmail").value;
+    const password = document.getElementById("loginPassword").value;
+
+    signInWithEmailAndPassword(auth, email, password)
+      .then(() => {
+        alert("Login successful!");
+        window.location.href = "dashboard.html";
+      })
+      .catch(err => alert(err.message));
+  });
+}
+
+// Logout
+const logoutBtn = document.getElementById("logout");
+if (logoutBtn) {
+  logoutBtn.addEventListener("click", () => {
+    signOut(auth).then(() => {
+      alert("Logged out successfully.");
+      window.location.href = "login.html";
+    });
+  });
+}
+
+// Protect dashboard
+onAuthStateChanged(auth, (user) => {
+  if (window.location.pathname.includes("dashboard.html")) {
+    if (!user) {
+      window.location.href = "login.html";
+    }
+  }
+});
