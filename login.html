@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login | Titan Company</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<header class="site-header">
+  <div class="logo">TITAN COMPANY</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="index.html#services">Services</a>
+    <a href="about.html">About</a>
+    <a href="login.html" class="active" id="nav-auth">Login</a>
+    <button id="nav-logout" class="btn ghost small" style="display:none;">Logout</button>
+  </nav>
+</header>
+
+<section class="page-head">
+  <h1>Account Access</h1>
+  <p class="sub">Register to earn points. Already a member? Log in below.</p>
+</section>
+
+<section class="auth-grid">
+  <div class="auth-card">
+    <h3>Create Account</h3>
+    <div class="form">
+      <input type="text" id="reg-name" placeholder="Full Name"/>
+      <input type="email" id="reg-email" placeholder="Email"/>
+      <input type="password" id="reg-password" placeholder="Password (min 6)"/>
+      <button class="btn primary" id="register-btn">Register</button>
+      <p id="reg-msg" class="msg"></p>
+    </div>
+  </div>
+
+  <div class="auth-card">
+    <h3>Login</h3>
+    <div class="form">
+      <input type="email" id="login-email" placeholder="Email"/>
+      <input type="password" id="login-password" placeholder="Password"/>
+      <button class="btn outline" id="login-btn">Login</button>
+      <p id="login-msg" class="msg"></p>
+    </div>
+  </div>
+</section>
+
+<section class="cta-banner">
+  <div class="cta-inner">
+    <h3>Once logged in:</h3>
+    <p>Click any “Book Now” in the services to schedule instantly and earn points.</p>
+    <a class="btn primary" href="index.html#services">Go to Services</a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <p>© 2025 Titan Company • Handyman & Landscaping</p>
+  <a class="admin-link" href="admin.html">Admin</a>
+</footer>
+
+<script type="module" src="main.js"></script>
+</body>
+</html>
